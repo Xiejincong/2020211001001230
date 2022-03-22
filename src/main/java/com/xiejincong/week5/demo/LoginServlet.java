@@ -1,14 +1,13 @@
 package com.xiejincong.week5.demo;
 
+import com.xiejincong.dao.UserDao;
+
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 @WebServlet(name="LoginServlet", value="/login")
 public class LoginServlet extends HttpServlet {
@@ -41,7 +40,7 @@ public class LoginServlet extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request,response);
     }
 
     @Override
@@ -49,6 +48,21 @@ public class LoginServlet extends HttpServlet {
         PrintWriter out= response.getWriter();
         String uname=request.getParameter("username");
      String upw=request.getParameter("password");
+        UserDao userDao=new UserDao();
+        try {
+
+            User user = userDao.findByUsernamePassword(con, username, password);
+            if(user!=null){
+                request.setAttribute("user",user);
+request.getRequestDispatcher("WEB-INF/views/userInfo").forward(request,response);
+            }else {
+request.setAttribute("message","Username or Password Error!");
+request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request,response);
+            }
+        }catch (SQLException throwables){
+            throwables.printStackTrace();
+        }
+
      String password=null;
 
         try{

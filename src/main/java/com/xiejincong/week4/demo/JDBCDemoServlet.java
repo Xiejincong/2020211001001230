@@ -12,7 +12,7 @@ public class JDBCDemoServlet extends HttpServlet {
     public void init() throws ServletException {
         super.init();
         String driver="com.microsoft.sqlserver.jdbc.SqlServerDriver";
-        java.lang.String url="jdbc:sqlserver:localhost:1433;database=userxjc;encrypt=false";
+        java.lang.String url="jdbc:sqlserver:localhost:1433;database=userab;encrypt=false";
         java.lang.String username="xjc";
         java.lang.String password="jc1230";
 
