@@ -11,6 +11,10 @@
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.xiejincong.week3.demo.RegisterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ConfigDemoServlet</servlet-name>
+        <servlet-class>com.xiejincong.week4.demo.ConfigDemoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register</url-pattern>
