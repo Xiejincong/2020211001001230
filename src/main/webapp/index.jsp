@@ -1,10 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>JSP - Home Work-Code Exercise#1</title>
-</head>
-<body>
+<%@include file="header.jsp"%>
 <h1><%= "Name : Xie Jincong" %>
 </h1>
 <h1><%="ID: 2020211001001230"%>
@@ -41,8 +36,5 @@
     }
 </script>
 
-
-
 <br/>
-</body>
-</html>
+<%@include file="footer.jsp"%>
