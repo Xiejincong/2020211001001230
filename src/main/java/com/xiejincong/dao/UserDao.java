@@ -71,8 +71,7 @@ public class UserDao implements IUserDao{
         public List<User> findByGender (Connection con, String gender) throws SQLException {
             return null;
         }
-
-        @Override
+       @Override
         public List<User> findByBirthdate (Connection con, Date birthDate) throws SQLException {
             return null;
         }

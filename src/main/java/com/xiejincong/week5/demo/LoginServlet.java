@@ -1,6 +1,7 @@
 package com.xiejincong.week5.demo;
 
 import com.xiejincong.dao.UserDao;
+import com.xiejincong.model.User;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
@@ -49,12 +50,37 @@ request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request,response
         String uname=request.getParameter("username");
      String upw=request.getParameter("password");
         UserDao userDao=new UserDao();
+        User user=null;
         try {
 
-            User user = userDao.findByUsernamePassword(con, username, password);
+
+            user = userDao.findByUsernamePassword(con,username,password);
             if(user!=null){
-                request.setAttribute("user",user);
-request.getRequestDispatcher("WEB-INF/views/userInfo").forward(request,response);
+                String rememberMe=request.getParameter("rememberMe");
+                if(request.getParameter("rememberMe").equals("1")){
+                    Cookie usernameCookie=new Cookie("cUsername",user.getUsername());
+                    Cookie passwordCookie=new Cookie("cPassword",user.getPassword());
+                    Cookie rememberMeCookie=new Cookie("cRememberMe",rememberMe);
+
+                  usernameCookie.setMaxAge(5);
+                  passwordCookie.setMaxAge(5);
+                  rememberMeCookie.setMaxAge(5);
+
+                  response.addCookie(usernameCookie);
+                  response.addCookie(passwordCookie);
+                  response.addCookie(rememberMeCookie);
+                }
+
+
+
+
+
+               HttpSession session=request.getSession();
+               System.out.println("session id-->"+session.getId());
+session.setMaxInactiveInterval(10);
+
+                session.setAttribute("user",user);
+request.getRequestDispatcher("WEB-INF/views/userInfo.jsp").forward(request,response);
             }else {
 request.setAttribute("message","Username or Password Error!");
 request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request,response);
