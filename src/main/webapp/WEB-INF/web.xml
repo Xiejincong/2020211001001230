@@ -20,6 +20,10 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>com.xiejincong.week5.demo.LoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RedirectServlet</servlet-name>
+        <servlet-class>com.xiejincong.week6.demo.RedirectServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register</url-pattern>

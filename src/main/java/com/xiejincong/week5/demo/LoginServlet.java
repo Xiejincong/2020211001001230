@@ -12,10 +12,11 @@ import java.sql.Statement;
 
 @WebServlet(name="LoginServlet", value="/login")
 public class LoginServlet extends HttpServlet {
-    Connection dbConn=null;
+    Connection con=null;
     @Override
     public void init() throws ServletException{
         super.init();
+        con = (Connection) getServletContext().getAttribute("con");
         String driver=getServletConfig().getServletContext().getInitParameter("driver");
         String url=getServletConfig().getServletContext().getInitParameter("url");
         String username=getServletConfig().getServletContext().getInitParameter("username");
@@ -29,7 +30,7 @@ public class LoginServlet extends HttpServlet {
             System.out.println("Failed to load driver!");
         }
         try{
-            dbConn= DriverManager.getConnection(url,username,password);
+            con= DriverManager.getConnection(url,username,password);
             System.out.println("Successfully connected to database!");
         }
         catch (Exception e){
@@ -45,22 +46,33 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-     String uname=request.getParameter("username");
+        PrintWriter out= response.getWriter();
+        String uname=request.getParameter("username");
      String upw=request.getParameter("password");
      String password=null;
-        PrintWriter out=response.getWriter();
+
         try{
-            Statement stmt=dbConn.createStatement();
+            Statement stmt=con.createStatement();
             ResultSet rs=stmt.executeQuery("select password from Usertable where username='"+uname+"'");
             while (rs.next()){
-                password=rs.getString("password");
+                //week5 code
+                //password=rs.getString("password");
+                request.setAttribute("id",rs.getInt("id"));
+                request.setAttribute("username",rs.getString("username"));
+                request.setAttribute("password",rs.getString("password"));
+                request.setAttribute("email",rs.getString("email"));
+                request.setAttribute("gender",rs.getString("gender"));
+                request.setAttribute("birthdate",rs.getString("birthdate"));
+                request.getRequestDispatcher("userInfo.jsp").forward(request,response);
             }
             if(upw.equals(password.trim())){
-                out.println("Login Success");
-                out.println("Welcome"+uname);
+               // out.println("Login Success");
+               // out.println("Welcome"+uname);
+                request.setAttribute("messaage","Username or password Error!!!");
+                request.getRequestDispatcher("login.jsp").forward(request,response);
             }
         }catch (Exception e){
-            out.println("wu le");
+           // out.println("wu le");
         }
     }
 }

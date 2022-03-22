@@ -14,9 +14,22 @@
     <servlet>
         <servlet-name>ConfigDemoServlet</servlet-name>
         <servlet-class>com.xiejincong.week4.demo.ConfigDemoServlet</servlet-class>
+
+    </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.xiejincong.week5.demo.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RedirectServlet</servlet-name>
+        <servlet-class>com.xiejincong.week6.demo.RedirectServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
     </servlet-mapping>
 </web-app>
