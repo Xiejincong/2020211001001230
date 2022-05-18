@@ -8,18 +8,18 @@ public class User {
     private String password;
     private String email;
     private String gender;
-    private java.util.Date birthDate;
+    private java.util.Date Birthdate;
 
     public User() {
     }
 
-    public User(int id, String username, String password, String email, String gender, Date birthDate) {
+    public User(int id, String username, String password, String email, String gender, Date Birthdate) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.email = email;
         this.gender = gender;
-        this.birthDate = birthDate;
+        this.Birthdate = Birthdate;
     }
 
     public int getId() {
@@ -62,12 +62,12 @@ public class User {
         this.gender = gender;
     }
 
-    public Date getBirthDate() {
-        return birthDate;
+    public Date getBirthdate() {
+        return Birthdate;
     }
 
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
+    public void setBirthdate(Date Birthdate) {
+        this.Birthdate = Birthdate;
     }
 
     @Override
@@ -78,7 +78,7 @@ public class User {
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", gender='" + gender + '\'' +
-                ", birthDate=" + birthDate +
+                ", Birthdate=" + Birthdate +
                 '}';
     }
 }

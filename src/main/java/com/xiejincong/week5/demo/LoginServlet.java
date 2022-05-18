@@ -54,7 +54,7 @@ request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request,response
         try {
 
 
-            user = userDao.findByUsernamePassword(con,username,password);
+            user = userDao.findByUsernamePassword(con,uname,upw);
             if(user!=null){
                 String rememberMe=request.getParameter("rememberMe");
                 if(request.getParameter("rememberMe").equals("1")){
