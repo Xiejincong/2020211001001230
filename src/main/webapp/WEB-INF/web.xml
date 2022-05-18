@@ -51,14 +51,5 @@
     <welcome-file-list>
         <welcome-file>home</welcome-file>
     </welcome-file-list>
-    <servlet>
-        <servlet-name>NewLifeServlet</servlet-name>
-        <servlet-class>com.LAB1.NewLifeServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>NewLifeServlet</servlet-name>
-        <url-pattern>new</url-pattern>
-    </servlet-mapping>
-
 
 </web-app>

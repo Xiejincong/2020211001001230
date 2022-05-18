@@ -1,68 +1,40 @@
-
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="header.jsp"%>
-	<section id="slider"><!--slider-->
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12">
-					<div id="slider-carousel" class="carousel slide" data-ride="carousel">
-						<ol class="carousel-indicators">
-							<li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
-							<li data-target="#slider-carousel" data-slide-to="1"></li>
-							<li data-target="#slider-carousel" data-slide-to="2"></li>
-						</ol>
-						
-						<div class="carousel-inner">
-							<div class="item active">
-								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>My E-Commerce Website</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
-								</div>
-								<div class="col-sm-6">
-									<img src="<%=basePath%>images/home/girl1.jpg" class="girl img-responsive" alt="" />
-									<img src="<%=basePath%>images/home/pricing.png"  class="pricing" alt="" />
-								</div>
-							</div>
-							<div class="item">
-								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>100% Responsive Design</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
-								</div>
-								<div class="col-sm-6">
-									<img src="<%=basePath%>images/home/girl2.jpg" class="girl img-responsive" alt="" />
-									<img src="<%=basePath%>images/home/pricing.png"  class="pricing" alt="" />
-								</div>
-							</div>
-							
-							<div class="item">
-								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>My Ecommerce Website</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
-								</div>
-								<div class="col-sm-6">
-									<img src="<%=basePath%>images/home/girl3.jpg" class="girl img-responsive" alt="" />
-									<img src="<%=basePath%>images/home/pricing.png" class="pricing" alt="" />
-								</div>
-							</div>
-							
-						</div>
-						
-						<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
-							<i class="fa fa-angle-left"></i>
-						</a>
-						<a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
-							<i class="fa fa-angle-right"></i>
-						</a>
-					</div>
-					
-				</div>
-			</div>
-		</div>
-	</section><!--/slider-->
-<%@include file="footer.jsp"%>
+<h1><%= "Name : Xie Jincong" %>
+</h1>
+<h1><%="ID: 2020211001001230"%>
+</h1>
+<h1><%="Date and Time Mon Mar 8 19:21:18 CST 2022"%></h1>
+<div  style="text-align: left;">
+<form name="form">
+    <input type="text" placeholder="Username" name="Username"><br>
+    <input type="passsword" placeholder="password" name="password"><br>
+    <input type="email" placeholder="Email" name="Email"><br>
+    <input type="radio" nmae="1" id="Male"/>Male
+    <input type="radio" name="1" id="Female"/>Female<br>
 
+    <input type="text" placeholder="Date of Birth(yyyy-mm-dd)" name="Date"><br>
+    <input type="submit" name="submit" id="jc"><br>
+</form>
+</div>
+<script>
+    document.getElementById("jc").onclick=function click(){
+        var a=form.Username.value.trim();
+        var b=form.password.value.trim().length;
+        var c=form.Email.value.trim().length;
+        var d=form.Date.value.trim();
+        if(b<8){
+            alert("The password length must be more than eight digits!")
+        }else if(c!=10){
+            alert("Date format error!")
+        }
+        if(a!=0 && b>=8 && c!=10 && d!=0){
+            alert("Login is successful!")
+        }else{
+            alert("Incomplete information!")
+        }
+    }
+</script>
+
+<br/>
+<%@include file="footer.jsp"%>

@@ -13,9 +13,6 @@ import java.sql.*;
 @WebServlet(name="LoginServlet", value="/login")
 public class LoginServlet extends HttpServlet {
     Connection con=null;
-    private String username;
-    private String password;
-
     @Override
     public void init() throws ServletException{
         super.init();

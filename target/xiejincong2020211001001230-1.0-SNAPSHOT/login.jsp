@@ -9,32 +9,8 @@
 <%@include file="header.jsp"%>
 <form method="post" action="login">
 <h1>Login</h1>
-    <%
-        if(!(request.getAttribute("message")==null)){
-            out.println(request.getAttribute("message"));
-        }
-    %>
-    <%
-        Cookie[] allCookies=request.getCookies();
-        String username="",password="",rememberMeVale="";
-        if(allCookies!=null){
-            for(Cookie c:allCookies) {
-                if (c.getName().equals("cUsername")) {
-                    username = c.getValue();
-                }
-                if (c.getName().equals("cPassword")) {
-                    password = c.getValue();
-                }
-                if (c.getName().equals("cRememberMe")) {
-                    rememberMeVale = c.getValue();
-                }
-            }
-        }
-    %>
-username:<input type=text" name="username" value="<%=username%>"><br>
-password:<input type="password" name="password" value="<%=password%>"><br>
-    <input type="checkbox" value="1" <%=rememberMeVale.equals("1") ?checked:""%>checked/>RememberMe<br/>
-
+username:<input type=text" name="username" placeholder="username"><br>
+password:<input type="password" name="password" placeholder="password"><br>
 <input type="submit" value=Login"><br>
 </form>
 <%@include file="footer.jsp"%>

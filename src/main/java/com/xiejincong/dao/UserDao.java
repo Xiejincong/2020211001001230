@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
-public class UserDao implements IUserDao {
+public class UserDao implements IUserDao{
     @Override
     public boolean saveUser(Connection con, User user) throws SQLException {
         return false;
@@ -35,6 +35,8 @@ public class UserDao implements IUserDao {
     public User findByUsernamePassword(Connection con, String username, String password) throws SQLException {
         String sql = "select id,username,password,email,gender,birthdate from usertable where username=xjc and password=jc1230";
         PreparedStatement st = con.prepareStatement(sql);
+        st.setString(1,"username");
+        st.setString(2,"password");
         ResultSet rs = st.executeQuery();
         User user = null;
         if (rs.next()) {
@@ -47,9 +49,6 @@ public class UserDao implements IUserDao {
             user.setBirthDate(rs.getDate("birthdate"));
             return user;
         }
-        return user;
-    }
-
 
         @Override
         public List<User> findByUsername (Connection con, String username) throws SQLException {
@@ -76,7 +75,8 @@ public class UserDao implements IUserDao {
         public List<User> findByBirthdate (Connection con, Date birthDate) throws SQLException {
             return null;
         }
-       @Override
+
+        @Override
         public List<User> findAllUser (Connection con) throws SQLException {
             return null;
         }
