@@ -57,3 +57,4 @@ public interface IProductDao {
 	 */
 	public List<Product> getPicture(Integer productId, Connection con) throws SQLException;
 }
+//
