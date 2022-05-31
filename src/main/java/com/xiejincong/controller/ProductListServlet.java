@@ -1,4 +1,6 @@
 package com.xiejincong.controller;
+import com.xiejincong.dao.ProductDao;
+import com.xiejincong.model.Product;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
