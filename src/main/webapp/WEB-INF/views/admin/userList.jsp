@@ -9,7 +9,7 @@
 <%@include file="../header.jsp" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
-<section id="jc">
+<section id="z'z'">
     <div class="container">
         <div class="breadcrumbs">
             <ol class="breadcrumb">
